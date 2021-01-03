@@ -209,3 +209,56 @@ body li {
 #project-container #diplay-section #task-container #date-arrow-toggle:hover {
     cursor: pointer;
 }
+
+#project-container #diplay-section #task-container 
+#user-task-container {
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background:var(--primary-light-shade);
+    border-radius: 5px;
+  }
+::-webkit-scrollbar-thumb {
+    background:var(--primary-accent);
+    border-radius: 5px;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .user-task, .add-task-Button{
+    height: 40px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    /* change color later */
+    border-top: var(--primary-light-shade) 1px solid;
+    border-bottom: var(--primary-light-shade)  1px solid;
+}
+
+#project-container #diplay-section #task-container 
+#userTask-container .add-task-button {
+    opacity: .5;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .user-task
+.task-description,
+.task-due-date,
+.emptyCheckBox,
+.checkedBox,
+.editIcon,
+.deleteIcon {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    line-height: 100%;
+    margin: auto 10px auto;
+}
