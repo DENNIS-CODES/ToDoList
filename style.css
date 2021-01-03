@@ -191,3 +191,21 @@ body li {
     line-height: 100%;
     margin: auto 10px auto;
 }
+
+#project-container #diplay-section #task-container #due-date-title {
+    font-size: 16px;
+    text-align: right;
+    margin-right: 60px;
+}
+
+#project-container #diplay-section #task-container #date-arrow-toggle {
+    width: 10px;
+    position: relative;
+    left: 0px;
+    margin: auto 5px auto 2px;
+}
+
+#project-container #diplay-section #task-container #due-date-title:hover,
+#project-container #diplay-section #task-container #date-arrow-toggle:hover {
+    cursor: pointer;
+}
