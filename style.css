@@ -245,7 +245,7 @@ body li {
 }
 
 #project-container #diplay-section #task-container 
-#userTask-container .add-task-button {
+#user-task-container .add-task-button {
     opacity: .5;
 }
 
@@ -261,4 +261,44 @@ body li {
     grid-column: 1/2;
     line-height: 100%;
     margin: auto 10px auto;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .user-task .deleteIcon,
+.editIcon {
+    opacity: 0;
+    transition-duration: .3s;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .user-task:hover .deleteIcon,
+.user-task:hover .editIcon {
+    opacity: .3;
+    transition-duration: .1s;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .user-task:hover .deleteIcon:hover,
+.user-task:hover .editIcon:hover{
+    opacity: .6;
+    transform: scale(1.1);
+    cursor: pointer;
+    transition-duration: .1s;
+}
+
+#project-container #diplay-section #task-container #user-task-container
+.checked .deleteIcon,
+#project-container #diplay-section #task-container #user-task-container
+.checked .editIcon {
+    opacity: .8;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .user-task
+.emptyCheckBox,
+.checkedBox,
+.editIcon,
+.deleteIcon
+ {
+    width: 15px;
 }
