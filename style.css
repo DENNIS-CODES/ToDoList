@@ -107,3 +107,19 @@ body li {
     line-height: 100%;
     margin: 10px 10px 10px;
 }
+
+#sidebar-content-container #sidebar-projectstab #ssidebar-userprojects .userprojects {
+    display: flex;
+    justify-content: flex-start;
+}    
+
+#sidebar-content-container #sidebar-projectstab #ssidebar-userprojects .tasknumbercontainer .task-number {
+    margin: auto;
+    position: relative;
+    top: 3px;
+    right: 0px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 100%;
+}
