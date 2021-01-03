@@ -14,7 +14,7 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
-	padding: 0;
+	padding: 10px;
 	border: 0;
 	font-size: 100%;
 	/*font: inherit;*/
@@ -40,3 +40,51 @@ body li {
     list-style-type: none;
 }
 
+#whensignedout, #whensignedin {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    display: flex;
+}
+
+#userdetails {
+    width: auto;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#signoutbutton {
+    height: 80%;
+    margin: auto 20px;
+    width: 100px;
+    border: none;
+    align-items: center;
+    border-radius: 25px;
+    background-color: var(--primary-light-shade);
+    font-weight: bolder;
+}
+
+#signoutbutton:hover {
+    transform: scale(1.05);
+    transition-duration: .1s;
+}
+
+#sidebar-content-container {
+    width: 250px;
+    margin: 50px auto;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#sidebar-content-container #sidebar-Hometab,
+#sidebar-content-container #sidebar-calendartab,
+#sidebar-content-container #sidebar-weektab {
+    font-size: 22px;
+    font-weight: bold;
+    /* line-height: 100%; */
+    margin: 10px 10px 10px;
+}
