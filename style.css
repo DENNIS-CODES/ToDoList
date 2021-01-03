@@ -88,3 +88,22 @@ body li {
     /* line-height: 100%; */
     margin: 10px 10px 10px;
 }
+
+#sidebar-content-container #sidebar-projectstab {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 100%;
+    margin: 10px 10px 10px;
+}
+
+#sidebar-content-container #sidebar-projectstab #ssidebar-userprojects {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#sidebar-content-container #sidebar-projectstab #ssidebar-userprojects div{
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 100%;
+    margin: 10px 10px 10px;
+}
