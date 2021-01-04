@@ -7,8 +7,12 @@
     <title>To-DO-LIST</title>
 </head>
 <body>
-    <div id="hidden-container">
+    <div id="hidden-container" hidden>
         <div id="project-container">
+            <div id="topbar">
+                <img src="images/menuToggle.svg" id="sidebarToggleMenu" class="unclicked" alt="">
+                <img id='topBarLogo' src="images/croppedLogo.png" alt="">
+            
             <div id="project-title">
                 To-Do-List...
             </div>
@@ -16,8 +20,9 @@
                 <div id="userdetails">
                     <button id="signoutbutton">Sign Out</button>
                 </div>
+            </div>
             </section>
-        </div>
+        
         <div id="sidebar">
             <div id="sidebar-content-container">
                 <li id="sidebar-Hometab">Home</li>
@@ -41,6 +46,7 @@
             </div>
         </div>
     </div>
+</div>
     <!--Scripts-->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/8.2.1/firebase-app.js"></script>
