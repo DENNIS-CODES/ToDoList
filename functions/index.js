@@ -35,3 +35,22 @@ const loginBackground = document.createElement('img')
 loginBackground.src = "images/background2.jpg"
 loginBackground.setAttribute('id', 'loginBackground')
 body.appendChild(loginBackground)
+
+auth.onAuthStateChanged( (user) => {
+    if (user) {
+      if (user.displayName) userDetails.innerHTML = `Hello, ${user.displayName}`
+      else userDetails.innerHTML = `Hello, ${user.email}`
+      if (body.querySelector('#signInContainer')) {
+        let remove = body.querySelector('#signInContainer')
+        body.removeChild(remove)
+      }
+      toDoList();
+      whenSignedIn.hidden = false;
+      hiddenContainer.style.display = ""
+      hiddenContainer.style.display = "auto"
+      hiddenContainer.hidden = false;
+      signOutButton.onclick = () => {
+        auth.signOut();
+        location.reload();
+      }
+    }
