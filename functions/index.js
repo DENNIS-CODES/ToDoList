@@ -126,6 +126,30 @@ const provider =  new firebase.auth.GoogleAuthProvider();
               email.setAttribute('placeholder', error.message)
             });
         }
-      }  
+      }
+    
+      let emailPass = signup.signUpEmailPass
+      emailPass.onclick = () => {
+        let submit = signup.submit
+        submit.onclick = () => {
+          let emailInput = signup.emailInputArea
+          let email = emailInput.value
+          
+          let passwordInputArea = signup.passwordInputArea
+          let password = passwordInputArea.value
+          firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then(function() {
+          })
+          .catch(function(error) {
+            emailInput.value = ""
+            passwordInputArea.value = ""
+            emailInput.setAttribute('placeholder', "Invalid email")
+            var errorCode = error.code;
+            var errorMessage = error.message;
+          });
+        }
+      }
+    
+    }
 
     
