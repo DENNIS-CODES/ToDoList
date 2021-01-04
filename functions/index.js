@@ -30,3 +30,8 @@ const userDetails = document.querySelector('#userDetails')
 
 const hiddenContainer = document.querySelector('#hiddenContainer')
 hiddenContainer.style.display = "none"
+
+const loginBackground = document.createElement('img')
+loginBackground.src = "images/background2.jpg"
+loginBackground.setAttribute('id', 'loginBackground')
+body.appendChild(loginBackground)
