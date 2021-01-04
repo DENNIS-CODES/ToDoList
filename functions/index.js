@@ -59,5 +59,18 @@ auth.onAuthStateChanged( (user) => {
         userDetails.innerHTML = `Hello`;
         signInProcess();
       }
-    })
+})
+
+const database = firebase.firestore();
+
+
+let signInProcess = () => {
+  signup.createSignInContainer();
+
+  let demoButton = signup.signInWithDemoButton;
+  demoButton.onclick = () => {
+    let email = "demo@gmail.com"
+    let password = "demodemo123"
+    firebase.auth().signInWithEmailAndPassword(email, password)
+  }
     
