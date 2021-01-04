@@ -152,4 +152,28 @@ const provider =  new firebase.auth.GoogleAuthProvider();
     
     }
 
+    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+      var email = window.localStorage.getItem('emailForSignIn');
+      if (!email) {
+        signup.createSignInContainer();
+        signup.reconfirmEmail();
+        let emailArea = signup.emailInputArea
+        let submit = signup.submit
+        submit.onclick = () => {
+          email = emailArea.value
+            firebase.auth().signInWithEmailLink(email, window.location.href)
+          .then(function(result) {
+            window.localStorage.removeItem('emailForSignIn');
+            let body = document.querySelector('body')
+            let signInContainer = signup.signInContainer
+            body.removeChild(signInContainer)
+          })
+          .catch(function(error) {
+            emailArea.value = ""
+            emailArea.setAttribute('placeholder', "Invalid Email")
+          });
+        }
+        
+      }
+
     
