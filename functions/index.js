@@ -98,4 +98,10 @@ signInButton.onclick = () => {
   });
 }
 
+const provider =  new firebase.auth.GoogleAuthProvider();
+  let signInWithGoogleButton = signup.signInWithGoogleButton
+  signInWithGoogleButton.onclick = () => {
+    auth.signInWithPopup(provider);
+}
+
     
