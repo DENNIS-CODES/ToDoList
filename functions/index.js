@@ -72,5 +72,30 @@ let signInProcess = () => {
     let email = "demo@gmail.com"
     let password = "demodemo123"
     firebase.auth().signInWithEmailAndPassword(email, password)
-  }
+}
+
+//signin with email+ password
+let signInButton = signup.signInButton
+signInButton.onclick = () => {
+  let emailInput = signup.emailInputArea
+  let email = emailInput.value
+  let passInput = signup.passwordInputArea
+  let password = passInput.value
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .catch(function(error) {
+    var errorCode = error.code;
+    emailInput.value = ""
+    passInput.value = ""
+    if (errorCode == 'auth/user-not-found') {
+      emailInput.setAttribute('placeholder', "email not registered")
+    }
+    else if (errorCode == 'auth/invalid-email') {
+      emailInput.setAttribute('placeholder', "Invalid email/password")
+    }
+    else if (errorCode == 'auth/wrong-password') {
+      passInput.setAttribute('placeholder', 'Invalid email/password')
+    }
+  });
+}
+
     
