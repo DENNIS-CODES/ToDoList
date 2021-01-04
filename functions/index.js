@@ -24,4 +24,9 @@ const auth = firestore.auth();
 
 const whenSignedIn = document.querySelector('#whenSignedIn')
 
+const signOutButton = document.querySelector('#signOutButton')
 
+const userDetails = document.querySelector('#userDetails')
+
+const hiddenContainer = document.querySelector('#hiddenContainer')
+hiddenContainer.style.display = "none"
