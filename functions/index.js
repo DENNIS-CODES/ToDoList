@@ -104,8 +104,28 @@ const provider =  new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
     }
      var actionCodeSettings = {
-    url: 'https://themddropout.github.io/betterToDoList/',
+    url: 'https://github.com/DENNIS-CODES/ToDoList',
     handleCodeInApp: true
   };
+
+  let signUpButton = signup.signUpButton
+  signUpButton.onclick = () => {
+      let signUpEmailOnly = signup.signUpEmailOnly
+      signUpEmailOnly.onclick = () => {
+        let submit = signup.submit
+        submit.onclick = () => {
+          let email = signup.emailInputArea
+          let inputEmail = email.value
+          firebase.auth().sendSignInLinkToEmail(inputEmail, actionCodeSettings)
+          .then(function() {
+            signup.emailSent();
+            window.localStorage.setItem('emailForSignIn', inputEmail);
+            })
+            .catch(function(error) {
+              email.value = ""
+              email.setAttribute('placeholder', error.message)
+            });
+        }
+      }  
 
     
