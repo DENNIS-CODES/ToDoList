@@ -54,3 +54,10 @@ auth.onAuthStateChanged( (user) => {
         location.reload();
       }
     }
+    else {
+        whenSignedIn.hidden = true;
+        userDetails.innerHTML = `Hello`;
+        signInProcess();
+      }
+    })
+    
