@@ -102,6 +102,10 @@ const provider =  new firebase.auth.GoogleAuthProvider();
   let signInWithGoogleButton = signup.signInWithGoogleButton
   signInWithGoogleButton.onclick = () => {
     auth.signInWithPopup(provider);
-}
+    }
+     var actionCodeSettings = {
+    url: 'https://themddropout.github.io/betterToDoList/',
+    handleCodeInApp: true
+  };
 
     
