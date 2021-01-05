@@ -312,3 +312,31 @@ const provider =  new firebase.auth.GoogleAuthProvider();
         projectHashMap.delete(projectName);
       }
     };
+
+    const dueDateTitle = document.querySelector("#dueDateTitle");
+    dueDateTitle.setAttribute("class", "descending");
+    dueDateTitle.addEventListener("click", toggleDateSort);
+    function toggleDateSort() {
+      let dateFilter;
+      let arrow = document.querySelector("#dateArrowToggle");
+      if (dueDateTitle.classList.contains("descending")) {
+        dueDateTitle.classList.remove("descending");
+        dueDateTitle.classList.add("ascending");
+        dateFilter = taskArray.sort(function (a, b) {
+          if (isBefore(toDate(new Date(a.dueDate)), toDate(new Date(b.dueDate))))
+            return 1;
+          else return -1;
+        });
+        arrow.style.transform = "rotate(180deg)";
+      } else if (dueDateTitle.classList.contains("ascending")) {
+        dueDateTitle.classList.add("descending");
+        dueDateTitle.classList.remove("ascending");
+        dateFilter = taskArray.sort(function (a, b) {
+          if (!isBefore(toDate(new Date(a.dueDate)), toDate(new Date(b.dueDate))))
+            return 1;
+          else return -1;
+        });
+        arrow.style.transform = "rotate(0deg)";
+      }
+      refreshTaskContainer(dateFilter);
+    }
