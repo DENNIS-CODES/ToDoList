@@ -254,3 +254,61 @@ const provider =  new firebase.auth.GoogleAuthProvider();
         }
       })
     })();
+
+    function syncWithFirebase () {
+      auth.onAuthStateChanged( user => {      
+        if (user) {
+          let thingsRef = database.collection('users').doc(user.uid)
+          thingsRef.get().then(function(doc) {
+            if (doc.exists) {
+  
+              thingsRef.set({
+                userTaskArray: taskArray
+              })
+            } 
+            else {
+              thingsRef.set({
+                userTaskArray: taskArray
+            })
+          }
+        }).catch(function(error) {
+        });
+      }})
+    }
+  
+    function initialHashMapSync () {
+      for (let i = 0; i < taskArray.length; i++) {
+        if (taskArray[i].project != "") {
+          if (!projectHashMap.has(taskArray[i].project)){
+            projectHashMap.set(taskArray[i].project, 1)
+          }
+          else {
+            let value = projectHashMap.get(taskArray[i].project);
+            value += 1;
+            projectHashMap.set(taskArray[i].project, value);
+          }
+        }
+      }
+    }
+   
+    const addItemsToHashMap = (projectName) => {
+      if (projectName == "") return;
+      else if (projectHashMap.has(projectName)) {
+        let value = projectHashMap.get(projectName);
+        value += 1;
+        projectHashMap.set(projectName, value);
+      } else {
+        projectHashMap.set(projectName, 1);
+      }
+    };
+  
+    const removeItemsToHashMap = (projectName) => {
+      if (projectHashMap.has(projectName)) {
+        let value = projectHashMap.get(projectName);
+        value -= 1;
+        projectHashMap.set(projectName, value);
+      }
+      if (projectHashMap.get(projectName) == 0) {
+        projectHashMap.delete(projectName);
+      }
+    };
