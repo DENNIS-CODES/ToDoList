@@ -394,3 +394,49 @@ const provider =  new firebase.auth.GoogleAuthProvider();
         }
       }
     }
+
+    function clickToday(e) {
+      filterTodayTasks();
+      refreshTaskContainer(taskArray);
+      let tabTitle = document.querySelector("#topRowTitle");
+      tabTitle.innerHTML = "Today";
+    }
+  
+    function clickWeek() {
+      filterWeekTasks();
+      refreshTaskContainer(taskArray);
+      let tabTitle = document.querySelector("#topRowTitle");
+      tabTitle.innerHTML = "Week";
+    }
+  
+    let todayTab = document.querySelector("#sidebarCalendarTab");
+    todayTab.addEventListener("click", clickToday);
+    let weekTab = document.querySelector("#sidebarWeekTab");
+    weekTab.addEventListener("click", clickWeek);
+  
+    let createProjectItem = (projectName, taskNumberInput) => {
+      let mainProjectsTab = document.querySelector("#sidebarUserProjects");
+  
+      let userProject = document.createElement("div");
+      userProject.setAttribute("id", projectName);
+      userProject.setAttribute("class", "userProject");
+      userProject.addEventListener("click", filterProjectTab);
+  
+      let projectDisplayName = document.createElement("div");
+      projectDisplayName.setAttribute("class", "projectName");
+      projectDisplayName.innerHTML = projectName;
+  
+      let taskNumberContainer = document.createElement("div");
+      taskNumberContainer.setAttribute("class", "taskNumberContainer");
+  
+      let taskNumber = document.createElement("div");
+      taskNumber.setAttribute("class", "taskNumber");
+      taskNumber.innerHTML = taskNumberInput;
+  
+      taskNumberContainer.appendChild(taskNumber);
+  
+      userProject.appendChild(taskNumberContainer);
+      userProject.appendChild(projectDisplayName);
+  
+      mainProjectsTab.appendChild(userProject);
+    };
