@@ -340,3 +340,57 @@ const provider =  new firebase.auth.GoogleAuthProvider();
       }
       refreshTaskContainer(dateFilter);
     }
+
+    const filteredArray = (targetProject) => {
+      if (targetProject == "sidebarHomeTab") {
+        for (let i = 0; i < taskArray.length; i++) {
+          taskArray[i].filter = "yes";
+        }
+      } else {
+        for (let i = 0; i < taskArray.length; i++) {
+          if (taskArray[i].project == targetProject) {
+            taskArray[i].filter = "yes";
+          } else {
+            taskArray[i].filter = "";
+          }
+        }
+      }
+    };
+  
+    function filterProjectTab(e) {
+      let selectedProject = e.target.id;
+      filteredArray(selectedProject);
+      refreshTaskContainer(taskArray);
+      let tabTitle = document.querySelector("#topRowTitle");
+      if (selectedProject == "sidebarHomeTab") {
+        tabTitle.innerHTML = "Home";
+      } else {
+        tabTitle.innerHTML = selectedProject;
+      }
+    }
+  
+  
+    let homeTab = document.querySelector("#sidebarHomeTab");
+    homeTab.addEventListener("click", filterProjectTab);
+  
+    function filterTodayTasks() {
+      for (let i = 0; i < taskArray.length; i++) {
+        let formattedDate = toDate(new Date(taskArray[i].dueDate));
+        if (isToday(formattedDate)) {
+          taskArray[i].filter = "yes";
+        } else {
+          taskArray[i].filter = "";
+        }
+      }
+    }
+    
+    function filterWeekTasks() {
+      for (let i = 0; i < taskArray.length; i++) {
+        let formattedDate = toDate(new Date(taskArray[i].dueDate));
+        if (isThisWeek(formattedDate)) {
+          taskArray[i].filter = "yes";
+        } else {
+          taskArray[i].filter = "";
+        }
+      }
+    }
