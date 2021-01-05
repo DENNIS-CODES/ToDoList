@@ -196,9 +196,21 @@ const provider =  new firebase.auth.GoogleAuthProvider();
     function toggleSideBar() {
       let sidebar = document.querySelector("#sidebar");
       if (toggleMenu.classList.contains("unclicked")) {
-        toggleMenu.classList.remove.("unclicked");
+        toggleMenu.classList.remove("unclicked");
+        toggleMenu.classList.add("clicked");
+        sidebar.style.left = "0";
+  
+        window.addEventListener("click", closeMenu);
+        function closeMenu(e) {
+          if (!e.target.id.includes("sidebar")) {
+            toggleMenu.classList.add("unclicked");
+            toggleMenu.classList.remove("clicked");
+            sidebar.style.left = "-300px";
+          }
+        }
+      } else {
+        toggleMenu.classList.add("unclicked");
         toggleMenu.classList.remove("clicked");
         sidebar.style.left = "-300px";
       }
     }
-  }
