@@ -175,4 +175,19 @@ const provider =  new firebase.auth.GoogleAuthProvider();
         }
         
       }
-      
+      if (email) {
+        firebase.auth().signInWithEmailLink(email, window.location.href)
+        .then(function(result) {
+          window.localStorage.removeItem('emailForSignIn');
+          let body = document.querySelector('body')
+          let signInContainer = signup.signInContainer
+          body.removeChild(signInContainer)
+        })
+        .catch(function(error) {
+          let emailArea = signup.emailInputArea
+          emailArea.value = ""
+          emailArea.setAttribute('placeholder', "Invalid Email")
+        });
+      }  
+    }
+  }
