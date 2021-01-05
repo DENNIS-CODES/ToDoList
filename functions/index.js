@@ -520,3 +520,41 @@ const provider =  new firebase.auth.GoogleAuthProvider();
           taskArray[userTask.id].completion = "";
         }
       };
+
+      emptyBox.addEventListener("click", toggleCheckbox);
+    checkedBox.addEventListener("click", toggleCheckbox);
+
+    const deleteTask = (e) => {
+      taskArray[userTask.id].description = "";
+
+      refreshTaskContainer(taskArray);
+
+      removeItemsToHashMap(taskArray[userTask.id].project);
+      taskArray[userTask.id].project = "";
+      refreshProjectsPanel();
+      syncWithFirebase();
+    };
+    deleteIcon.addEventListener("click", deleteTask);
+
+    const editTask = () => {
+      // userTask = createInputForm().addTaskFormContainer
+      let container = document.querySelector("#userTaskContainer");
+      let form = createInputForm(
+        taskArray[userTask.id].description,
+        taskArray[userTask.id].details,
+        taskArray[userTask.id].dueDate,
+        taskArray[userTask.id].project,
+        userTask.id
+      ).addTaskFormContainer;
+      form.setAttribute("class", "editing");
+      container.insertBefore(form, userTask);
+      container.removeChild(userTask);
+      removeItemsToHashMap(taskArray[userTask.id].project);
+      $("#dueDate").datepicker({
+        format: "m/dd/yyyy",
+        todayBtn: "linked",
+        keyboardNavigation: false,
+        autoclose: true,
+        todayHighlight: true,
+      });
+    };
