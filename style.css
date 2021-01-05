@@ -339,12 +339,6 @@ body li {
 }
 
 #project-container #diplay-section #task-container 
-#user-task-container .user-task .editIcon {
-    position: relative;
-    left: 735px
-}
-
-#project-container #diplay-section #task-container 
 #user-task-container .addTaskButton .taskDescription{
     grid-row: 1/2;
     grid-column: 1/2;
@@ -354,4 +348,30 @@ body li {
 
 #project-container #diplay-section #task-container
 .checked {   opacity: .3;
+}
+
+#project-container #diplay-section #task-container
+.checked .taskDescription, 
+.checked .taskDueDate{
+    text-decoration: line-through;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .addTaskButton img {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    width: 20px;
+    margin: auto 0px auto 8px;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .addTaskButton:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container #addTaskFormContainer {
+    height: 210px;
+    width: 100%;
 }
