@@ -189,3 +189,16 @@ const provider =  new firebase.auth.GoogleAuthProvider();
       }  
     }
   }
+
+  let toDoList =() => {
+    let toggleMenu = document.querySelector("#sidebarToggleMenu");
+    toggleMenu.addEventListener("click", toggleSideBar);
+    function toggleSideBar() {
+      let sidebar = document.querySelector("#sidebar");
+      if (toggleMenu.classList.contains("unclicked")) {
+        toggleMenu.classList.remove.("unclicked");
+        toggleMenu.classList.remove("clicked");
+        sidebar.style.left = "-300px";
+      }
+    }
+  }
