@@ -558,3 +558,77 @@ const provider =  new firebase.auth.GoogleAuthProvider();
         todayHighlight: true,
       });
     };
+
+    editIcon.addEventListener("click", editTask);
+
+    const openTask = () => {
+      let taskPopUpContainer = document.createElement('div')
+      taskPopUpContainer.setAttribute('class', 'taskPopUpContainer')
+
+      let taskPopUpTopBar = document.createElement('div')
+      taskPopUpTopBar.setAttribute('class', 'taskPopUpTopBar')
+
+      let taskPopUpTitle = document.createElement('div')
+      taskPopUpTitle.setAttribute('class', 'taskPopUpTitle')
+      taskPopUpTitle.innerHTML = taskArray[userTask.id].description
+
+      let taskPopUpDetails = document.createElement('div')
+      taskPopUpDetails.setAttribute('class', 'taskPopUpDetails')
+      if (taskArray[userTask.id].details != undefined &&taskArray[userTask.id].details != "") {
+        taskPopUpDetails.innerHTML = "Details: " + taskArray[userTask.id].details
+      }
+      else taskPopUpDetails.innerHTML = "Details: none"
+      
+      let close = document.createElement('img')
+      close.src = "images/add.svg"
+      close.setAttribute('id', 'closePop')
+
+      let taskPopUpDueDate = document.createElement('div')
+      taskPopUpDueDate.setAttribute('class', 'taskPopUpDueDate')
+      taskPopUpDueDate.innerHTML = "Due: " + taskArray[userTask.id].dueDate
+
+      let taskPopUpProject = document.createElement('div')
+      taskPopUpProject.setAttribute('class', 'taskPopUpProject')
+      taskPopUpProject.innerHTML = "Project: " + taskArray[userTask.id].project
+
+      taskPopUpContainer.appendChild(taskPopUpTopBar)
+      taskPopUpTopBar.appendChild(taskPopUpTitle)
+      taskPopUpContainer.appendChild(close)
+      taskPopUpContainer.appendChild(taskPopUpDueDate)
+      taskPopUpContainer.appendChild(taskPopUpProject)
+      taskPopUpContainer.appendChild(taskPopUpDetails)
+
+      let taskPopUpCenterer = document.createElement('div')
+      taskPopUpCenterer.setAttribute('id', 'centerer')
+      taskPopUpCenterer.appendChild(taskPopUpContainer)
+
+      let mask = document.createElement('div') 
+      mask.setAttribute('id', 'mask')
+      
+      let body = document.querySelector('body')
+      body.appendChild(taskPopUpCenterer)
+      body.appendChild(mask)
+
+      function closePopUp () {
+        body.removeChild(taskPopUpCenterer)
+        body.removeChild(mask)
+      }
+      close.addEventListener('click', closePopUp)
+    }
+    taskDescription.addEventListener('click', openTask)
+
+    return {
+      userTask,
+    };
+  };
+
+  let appendTask = (task) => {
+    let container = document.querySelector("#userTaskContainer");
+    container.appendChild(task);
+  };
+
+  const clearAllChildNodes = (parentNode) => {
+    while (parentNode.firstElementChild) {
+      parentNode.removeChild(parentNode.firstElementChild);
+    }
+  };
