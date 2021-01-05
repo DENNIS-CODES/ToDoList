@@ -324,3 +324,34 @@ body li {
     opacity: 1;
     cursor: pointer;
 }
+
+#project-container #diplay-section #task-container 
+#user-task-container .user-task .taskDueDate{
+    text-align: right;
+    font-size: 14px;
+    margin-right: 65px;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .user-task .deleteIcon {
+    position: relative;
+    left: 755px;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .user-task .editIcon {
+    position: relative;
+    left: 735px
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container .addTaskButton .taskDescription{
+    grid-row: 1/2;
+    grid-column: 1/2;
+    line-height: 100%;
+    margin: auto 40px auto 38px;
+}
+
+#project-container #diplay-section #task-container
+.checked {   opacity: .3;
+}
