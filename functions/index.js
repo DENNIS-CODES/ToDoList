@@ -440,3 +440,83 @@ const provider =  new firebase.auth.GoogleAuthProvider();
   
       mainProjectsTab.appendChild(userProject);
     };
+    let genereateProjectTabsFromHashMap = () => {
+      const mapKeyIterator = projectHashMap.keys();
+      const mapValueIterator = projectHashMap.values();
+      const mapIterator = projectHashMap[Symbol.iterator]();
+      for (const item of mapIterator) {
+        createProjectItem(
+          mapKeyIterator.next().value,
+          mapValueIterator.next().value
+        );
+      }
+    };
+  
+    const clearProjectsPanel = () => {
+      let container = document.querySelector("#sidebarUserProjects");
+      clearAllChildNodes(container);
+    };
+  
+    const refreshProjectsPanel = () => {
+      clearProjectsPanel();
+      genereateProjectTabsFromHashMap();
+    };
+  
+    let generateTask = (taskDescript, dueDate, completionStatus) => {
+      const userTask = document.createElement("li");
+      userTask.setAttribute("class", "userTask");
+  
+      const taskDescription = document.createElement("div");
+      taskDescription.setAttribute("class", "taskDescription");
+      taskDescription.innerHTML = taskDescript;
+  
+      const taskDueDate = document.createElement("div");
+      taskDueDate.setAttribute("class", "taskDueDate");
+      taskDueDate.innerHTML = dueDate;
+      let formattedDate = toDate(new Date(dueDate));
+      if (isBefore(formattedDate, endOfToday())) {
+        taskDueDate.style.color = "red";
+      }
+  
+      const emptyBox = document.createElement("img");
+      emptyBox.src = "images/checkboxEmpty.svg";
+      emptyBox.setAttribute("class", "emptyCheckBox");
+  
+      const checkedBox = document.createElement("img");
+      checkedBox.src = "images/checkbox.svg";
+      checkedBox.setAttribute("class", "checkedBox");
+  
+      const editIcon = document.createElement("img");
+      editIcon.src = "images/edit.svg";
+      editIcon.setAttribute("class", "editIcon");
+  
+      const deleteIcon = document.createElement("img");
+      deleteIcon.src = "images/delete.svg";
+      deleteIcon.setAttribute("class", "deleteIcon");
+  
+      if (completionStatus == "complete") {
+        userTask.appendChild(checkedBox);
+        userTask.classList.add("checked");
+      } else if (completionStatus == "") {
+        userTask.appendChild(emptyBox);
+      }
+      // userTask.appendChild(emptyBox)
+  
+      userTask.appendChild(taskDescription);
+      userTask.appendChild(taskDueDate);
+      userTask.appendChild(editIcon);
+      userTask.appendChild(deleteIcon);
+  
+      const toggleCheckbox = (e) => {
+        if (e.target == emptyBox) {
+          userTask.removeChild(emptyBox);
+          userTask.insertBefore(checkedBox, taskDescription);
+          userTask.classList.add("checked");
+          taskArray[userTask.id].completion = "complete";
+        } else if (e.target == checkedBox) {
+          userTask.removeChild(checkedBox);
+          userTask.insertBefore(emptyBox, taskDescription);
+          userTask.classList.remove("checked");
+          taskArray[userTask.id].completion = "";
+        }
+      };
