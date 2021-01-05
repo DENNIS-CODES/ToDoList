@@ -6,13 +6,13 @@
 //   response.send("Hello from Firebase!");
 // });
 import {
-    isToday,
-    toDate,
-    isThisWeek,
-    isBefore,
-    endOfToday
-    add,
-    format,
+  isToday,
+  toDate,
+  isThisWeek,
+  isBefore,
+  endOfToday,
+  add,
+  format,
 } from "date-fns";
 import {signup} from "../dist/signin"
 
@@ -214,3 +214,43 @@ const provider =  new firebase.auth.GoogleAuthProvider();
         sidebar.style.left = "-300px";
       }
     }
+    const taskFactoryFunc = (
+      description,
+      dueDate,
+      project,
+      completion,
+      filter,
+      details
+    ) => {
+      return { description, dueDate, project, completion, filter, details};
+    };
+  
+    let taskArray = [];
+  
+    const projectHashMap = new Map();
+  
+    let onStartDemoCondition = (() => {
+      auth.onAuthStateChanged( user => {      
+        if (user) {
+          if (user.uid == "SDzLU3EAgWOXI25mAkPNM4KslHj2"){
+            let thingsRef = database.collection('users').doc('whfH5WOfbwe6ZQfXmEGWgYc2WRj2')
+            thingsRef.get().then(function(doc) {
+              taskArray = [...doc.data().userTaskArray]
+              refreshTaskContainer(taskArray)
+              initialHashMapSync ();
+              refreshProjectsPanel();
+            })
+          }
+          else {
+            let thingsRef = database.collection('users').doc(user.uid)
+            thingsRef.get().then(function(doc) {
+              if(doc.data()) taskArray = [...doc.data().userTaskArray]
+              else syncWithFirebase ();
+              refreshTaskContainer(taskArray)
+              initialHashMapSync ();
+              refreshProjectsPanel();
+            })
+          }
+        }
+      })
+    })();
