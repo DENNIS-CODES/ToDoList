@@ -806,3 +806,23 @@ const provider =  new firebase.auth.GoogleAuthProvider();
       getUserData,
     };
   };
+
+  let createAddTask = () => {
+    const addTaskButton = document.createElement("li");
+    addTaskButton.setAttribute("class", "addTaskButton");
+
+    const addIcon = document.createElement("img");
+    addIcon.src = "images/add.svg";
+
+    const description = document.createElement("div");
+    description.setAttribute("class", "taskDescription");
+    description.innerHTML = "Add Task";
+
+    addTaskButton.appendChild(addIcon);
+    addTaskButton.appendChild(description);
+
+    addTaskButton.addEventListener("click", clickAdd);
+    function clickAdd() {
+      let container = document.querySelector("#userTaskContainer");
+      container.removeChild(container.lastElementChild);
+      addFormToDocument("userTaskContainer");
