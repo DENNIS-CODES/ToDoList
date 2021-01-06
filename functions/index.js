@@ -632,3 +632,23 @@ const provider =  new firebase.auth.GoogleAuthProvider();
       parentNode.removeChild(parentNode.firstElementChild);
     }
   };
+  let generateArray = (array) => {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].description != "" && array[i].filter == "yes") {
+        let task = generateTask(
+          array[i].description,
+          array[i].dueDate,
+          array[i].completion
+        ).userTask;
+        task.setAttribute("id", `${i}`);
+        appendTask(task);
+      }
+    }
+  };
+
+  let refreshTaskContainer = (array) => {
+    let container = document.querySelector("#userTaskContainer");
+    clearAllChildNodes(container);
+    generateArray(array);
+    addAddTaskToDocument("userTaskContainer");
+  };
