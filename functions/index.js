@@ -652,3 +652,36 @@ const provider =  new firebase.auth.GoogleAuthProvider();
     generateArray(array);
     addAddTaskToDocument("userTaskContainer");
   };
+
+  //Function to create task form
+  let createInputForm = (
+    loadDescription,
+    loadDetails,
+    loadDueDate,
+    loadProjectName,
+    loadArrayIndex
+  ) => {
+    let arrayIndex;
+    let topRowTitle = document.querySelector("#topRowTitle");
+    topRowTitle = topRowTitle.innerHTML;
+    if (loadArrayIndex) {
+      arrayIndex = loadArrayIndex;
+    }
+    const addTaskFormContainer = document.createElement("form");
+    addTaskFormContainer.setAttribute("id", "addTaskFormContainer");
+
+    const addTaskTopBox = document.createElement("div");
+    addTaskTopBox.setAttribute("id", "addTaskTopBox");
+
+    const userDescriptionArea = document.createElement("textarea");
+    userDescriptionArea.setAttribute("name", "message");
+    userDescriptionArea.setAttribute('id', 'descriptionArea')
+    userDescriptionArea.setAttribute("placeholder", "Title: Laundry");
+    userDescriptionArea.setAttribute("maxlength", "35");
+    userDescriptionArea.setAttribute("required", "true");
+    if (loadDescription) userDescriptionArea.value = loadDescription;
+
+    const userDetailsArea = document.createElement("textarea");
+    userDetailsArea.setAttribute("name", "details");
+    userDetailsArea.setAttribute('id', 'detailsArea')
+    userDetailsArea.setAttribute("placeholder", "Details: e.g. fold laundry at 4pm");
