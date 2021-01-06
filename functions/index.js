@@ -763,3 +763,46 @@ const provider =  new firebase.auth.GoogleAuthProvider();
       datePicker.value = "";
       projectName.value = "";
     };
+    checkmark.addEventListener("click", clickSubmit);
+    function clickSubmit(e) {
+      if (addTaskFormContainer.classList.contains("editing")) {
+        taskArray[arrayIndex].description = userDescriptionArea.value;
+        taskArray[arrayIndex].details = userDetailsArea.value;
+        taskArray[arrayIndex].dueDate = datePicker.value;
+        taskArray[arrayIndex].project = projectName.value;
+        addItemsToHashMap(projectName.value);
+        refreshTaskContainer(taskArray);
+        refreshProjectsPanel();
+        syncWithFirebase();
+
+      } else if (userDescriptionArea.value != "") {
+        let userData = getUserData();
+        pushFormDataToArray(userData);
+        addItemsToHashMap(projectName.value);
+        clearFormData();
+        refreshTaskContainer(taskArray);
+        refreshProjectsPanel();
+        syncWithFirebase();    
+
+      } else {
+        userDescriptionArea.setAttribute(
+          "placeholder",
+          "Must include a title"
+        );
+        userDescriptionArea.setAttribute("class", "noDescription");
+      }
+    }
+
+    cancel.addEventListener("click", clickCancel);
+    function clickCancel() {
+      if (addTaskFormContainer.classList.contains("editing")) {
+        addItemsToHashMap(projectName.value);
+      }
+      refreshTaskContainer(taskArray);
+      refreshProjectsPanel();
+    }
+    return {
+      addTaskFormContainer,
+      getUserData,
+    };
+  };
