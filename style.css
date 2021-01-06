@@ -440,3 +440,28 @@ body li {
 #user-task-container #add-taskTopBox #inputProject {
     width: 150px;
 }
+
+#project-container #diplay-section #task-container 
+#user-task-container #add-taskTopBox #dueDate, #inputProject {
+    grid-row: 3/4;
+    width: 100px;
+    height: 30px;
+    margin:auto;
+    margin-left: 10px;
+    line-height: 100%;
+    text-align: center;
+    padding: 0px;
+    border-radius: 5px;
+    border: var(--primary-accent) 1px solid;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container #add-taskTopBox #inputProject {
+    width: 150px;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container #add-taskTopBox #dueDate:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}
