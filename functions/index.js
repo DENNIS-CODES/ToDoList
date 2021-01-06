@@ -685,3 +685,61 @@ const provider =  new firebase.auth.GoogleAuthProvider();
     userDetailsArea.setAttribute("name", "details");
     userDetailsArea.setAttribute('id', 'detailsArea')
     userDetailsArea.setAttribute("placeholder", "Details: e.g. fold laundry at 4pm");
+
+    // userDetailsArea.setAttribute("required", "true");
+    if (loadDetails) userDetailsArea.value = loadDetails;
+
+    const datePicker = document.createElement("input");
+    datePicker.setAttribute("type", "text");
+    datePicker.setAttribute("id", "dueDate");
+    datePicker.setAttribute("placeholder", "Due Date");
+    datePicker.setAttribute("autocomplete", "off");
+    datePicker.setAttribute("class", "form-control");
+    if (loadDueDate) datePicker.value = loadDueDate;
+
+    const projectName = document.createElement("input");
+    projectName.setAttribute("type", "text");
+    projectName.setAttribute("id", "inputProject");
+    projectName.setAttribute("placeholder", "Project Name");
+    projectName.setAttribute("autocomplete", "off");
+    projectName.setAttribute("class", "form-control");
+    if (loadProjectName) projectName.value = loadProjectName;
+    if (topRowTitle != "Home" && topRowTitle != "Today" && topRowTitle != "Week") {
+      projectName.value = topRowTitle;
+    }
+
+    addTaskTopBox.appendChild(userDescriptionArea);
+    addTaskTopBox.appendChild(userDetailsArea)
+    addTaskTopBox.appendChild(datePicker);
+    addTaskTopBox.appendChild(projectName);
+
+    const addTaskBottomRow = document.createElement("div");
+    addTaskBottomRow.setAttribute("id", "addTaskBottomRow");
+
+    const checkmark = document.createElement("img");
+    checkmark.src = "images/checkmark.svg";
+
+    const cancel = document.createElement("img");
+    cancel.src = "images/cancel.svg";
+
+    addTaskBottomRow.appendChild(checkmark);
+    addTaskBottomRow.appendChild(cancel);
+
+    addTaskFormContainer.appendChild(addTaskTopBox);
+    addTaskFormContainer.appendChild(addTaskBottomRow);
+
+    const getUserData = () => {
+      let getUserDescription = userDescriptionArea.value;
+      let getUserDetails = userDetailsArea.value;
+      if (getUserDetails == "undefined") {
+        getUserDetails = ""
+      }
+      let getUserDueDate = datePicker.value;
+      let getProjectName = projectName.value;
+      return {
+        getUserDescription,
+        getUserDetails,
+        getUserDueDate,
+        getProjectName,
+      };
+    };
