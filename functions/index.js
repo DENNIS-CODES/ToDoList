@@ -743,3 +743,16 @@ const provider =  new firebase.auth.GoogleAuthProvider();
         getProjectName,
       };
     };
+
+    let task =  {}
+    const pushFormDataToArray = (dataObject) => {
+      let task = taskFactoryFunc(
+        dataObject.getUserDescription,
+        dataObject.getUserDueDate,
+        dataObject.getProjectName,
+        "",
+        "yes",
+        dataObject.getUserDetails
+      );
+      taskArray.push(task);
+    };
