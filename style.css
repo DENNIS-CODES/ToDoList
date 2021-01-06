@@ -401,3 +401,42 @@ body li {
     outline: none;  
     resize: none;
 }
+
+#project-container #diplay-section #task-container 
+#user-task-container #add-taskTopBox #detailsArea{
+    grid-row: 2/3;
+    grid-column: 1/3;
+    min-height: 65px;
+    width: 95%;
+    padding: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: transparent;
+    border: none; 
+    outline: none;  
+    resize: none;
+} 
+
+#project-container #diplay-section #task-container 
+#user-task-container #add-taskTopBox .noDescription::placeholder {
+    color: red;
+    opacity: .55
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container #add-taskTopBox #dueDate, #inputProject {
+    grid-row: 3/4;
+    width: 100px;
+    height: 30px;
+    margin:auto;
+    margin-left: 10px;
+    line-height: 100%;
+    text-align: center;
+    padding: 0px;
+    border-radius: 5px;
+    border: var(--primary-accent) 1px solid;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container #add-taskTopBox #inputProject {
+    width: 150px;
+}
