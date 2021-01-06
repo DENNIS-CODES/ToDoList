@@ -826,3 +826,17 @@ const provider =  new firebase.auth.GoogleAuthProvider();
       let container = document.querySelector("#userTaskContainer");
       container.removeChild(container.lastElementChild);
       addFormToDocument("userTaskContainer");
+
+       //activate bootstrap datepicker once form is created
+       $("#dueDate").datepicker({
+        format: "m/dd/yyyy",
+        todayBtn: "linked",
+        keyboardNavigation: false,
+        autoclose: true,
+        todayHighlight: true,
+      });
+    }
+    return {
+      addTaskButton,
+    };
+  };
