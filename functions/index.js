@@ -840,3 +840,20 @@ const provider =  new firebase.auth.GoogleAuthProvider();
       addTaskButton,
     };
   };
+
+   //Function to add task form onto an element
+   let addFormToDocument = (elementToAppendOnto) => {
+    let container = document.querySelector(`#${elementToAppendOnto}`);
+    let form = createInputForm();
+    container.appendChild(form.addTaskFormContainer);
+  };
+
+  let addAddTaskToDocument = (elementToAppendOnto) => {
+    let container = document.querySelector(`#${elementToAppendOnto}`);
+    let form = createAddTask();
+    container.appendChild(form.addTaskButton);
+  };
+  refreshTaskContainer(taskArray)
+  
+  return { taskFactoryFunc, projectHashMap };
+};
