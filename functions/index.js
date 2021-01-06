@@ -756,3 +756,10 @@ const provider =  new firebase.auth.GoogleAuthProvider();
       );
       taskArray.push(task);
     };
+
+    const clearFormData = () => {
+      userDescriptionArea.value = "";
+      userDetailsArea.value = "";
+      datePicker.value = "";
+      projectName.value = "";
+    };
