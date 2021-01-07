@@ -76,3 +76,21 @@ let signup = (() => {
      signUpButtonText.innerHTML = "Sign Up"
      signUpButton.appendChild(signUpButtonText)
      signUpButton.addEventListener('click', openSignUpPanel)
+
+     let signUpEmailPass = createElement('signUpEmailPass', "button")
+     let signUpEmailPassText = createElement('signUpEmailPassText')
+     signUpEmailPass.appendChild(signUpEmailPassText)
+     signUpEmailPassText.innerHTML = "Email + Password"
+     signUpEmailPass.addEventListener('click', promptEmailPass)
+ 
+     let signUpEmailOnly = createElement('signUpEmailOnly', "button")
+     let signUpEmailOnlyText = createElement('signUpEmailOnlyText')
+     signUpEmailOnly.appendChild(signUpEmailOnlyText)
+     signUpEmailOnlyText.innerHTML = "Email Only"
+     signUpEmailOnly.addEventListener('click', promptEmail)
+ 
+     let submit = createElement('submit', "button")
+     let submitText = createElement('submitText')
+     submit.appendChild(submitText)
+     submitText.innerHTML = "Submit Email"
+ 
