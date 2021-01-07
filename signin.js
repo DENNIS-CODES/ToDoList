@@ -51,3 +51,28 @@ let signup = (() => {
      passwordContainer.appendChild(passwordIcon)
      passwordContainer.appendChild(passwordInputArea)
      emailPasswordContainer.appendChild(passwordContainer)
+
+     let selectionDivider = createElement('selectionDivider')
+     selectionDivider.innerHTML = "- OR -"
+     
+     let signInWithGoogleButton = createElement('signInWithGoogleButton', "button");
+     let signInWithGoogleText = createElement('signInWithGoogleText');
+     let googleIcon = createElement('googleIcon', "icon", "img")
+     googleIcon.src = "images/google-plus.svg"
+     signInWithGoogleText.innerHTML = "Sign in with Google"
+     signInWithGoogleButton.appendChild(googleIcon)
+     signInWithGoogleButton.appendChild(signInWithGoogleText)
+ 
+     let signInWithDemoButton = createElement('signInWithDemoButton', "button");
+     let signInWithDemoText = createElement('signInWithDemoText');
+     let signInWithDemoText2 = createElement('signInWithDemoText2');
+     signInWithDemoText.innerHTML = "Demo"
+     signInWithDemoText2.innerHTML = "Version"
+     signInWithDemoButton.appendChild(signInWithDemoText)
+     signInWithDemoButton.appendChild(signInWithDemoText2)
+ 
+     let signUpButton = createElement('signUpButton', "button")
+     let signUpButtonText = createElement('signUpButtonText')
+     signUpButtonText.innerHTML = "Sign Up"
+     signUpButton.appendChild(signUpButtonText)
+     signUpButton.addEventListener('click', openSignUpPanel)
