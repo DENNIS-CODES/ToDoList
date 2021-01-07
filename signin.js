@@ -158,6 +158,28 @@ let signup = (() => {
         welcomeText.innerHTML = "Welcome Back!"
         emailInputArea.setAttribute('placeholder', 'Email Address')
     }
+    return {
+        createSignInContainer,
+        emailSent,
+        reconfirmEmail,
+        // clearContainer,
+        signInContainer,
+        signInButton,
+        signInWithGoogleButton,
+        signUpButton,
+        submit,
+        signUpEmailOnly,
+        signUpEmailPass,
+        emailInputArea,
+        passwordInputArea,
+        signInWithDemoButton,
+        backButton
+    }
+})();
+
+export {
+    signup
+}
 
  
  
