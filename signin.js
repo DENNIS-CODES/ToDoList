@@ -147,5 +147,17 @@ let signup = (() => {
         passwordInputArea.value = ""
     }
 
+    function createSignInContainer () {
+        signInContainer.append(companyNameContainer, welcomeContainer, 
+            emailPasswordContainer, signInButton, selectionDivider, signInWithGoogleButton, signUpButton,
+            signInWithDemoButton)
+        emailPasswordContainer.append(emailContainer, passwordContainer)
+        if (emailPasswordContainer.firstElementChild == submit) {
+            emailPasswordContainer.removeChild(submit)
+        }
+        welcomeText.innerHTML = "Welcome Back!"
+        emailInputArea.setAttribute('placeholder', 'Email Address')
+    }
+
  
  
