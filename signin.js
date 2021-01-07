@@ -104,5 +104,11 @@ let signup = (() => {
         clearContainer();
         createSignInContainer();
     }
+
+    function clearContainer () {
+        while (signInContainer.firstElementChild) {
+            signInContainer.removeChild(signInContainer.firstElementChild);
+        }
+    }
  
  
