@@ -93,4 +93,11 @@ let signup = (() => {
      let submitText = createElement('submitText')
      submit.appendChild(submitText)
      submitText.innerHTML = "Submit Email"
+
+     let backButton = createElement('backButton', "button");
+     let backButtonText = createElement('backButtonText');
+     backButtonText.innerHTML = "Back"
+     backButton.appendChild(backButtonText)
+     backButton.addEventListener('click', returnHome)
+ 
  
