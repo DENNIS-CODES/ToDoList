@@ -99,5 +99,10 @@ let signup = (() => {
      backButtonText.innerHTML = "Back"
      backButton.appendChild(backButtonText)
      backButton.addEventListener('click', returnHome)
+
+     function returnHome() {
+        clearContainer();
+        createSignInContainer();
+    }
  
  
