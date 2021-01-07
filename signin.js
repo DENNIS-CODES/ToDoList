@@ -138,5 +138,14 @@ let signup = (() => {
             welcomeText.innerHTML = "Enter your desired email and password";
     }
 
+    function openSignUpPanel () {
+        clearContainer();
+        signInContainer.append(companyNameContainer, welcomeContainer,
+            signUpEmailPass, signUpEmailOnly, backButton);
+        welcomeText.innerHTML = "Sign Up";
+        emailInputArea.value = ""
+        passwordInputArea.value = ""
+    }
+
  
  
