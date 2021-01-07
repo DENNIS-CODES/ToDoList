@@ -125,5 +125,18 @@ let signup = (() => {
         welcomeText.innerHTML = "Please re-confirm your email";
     }
 
+    function promptEmail () {
+        promptEmailPass();
+        emailPasswordContainer.removeChild(passwordContainer)
+        signInContainer.removeChild(submit)
+        emailPasswordContainer.appendChild(submit)
+    }
+    function promptEmailPass () {
+        clearContainer();
+        signInContainer.append(companyNameContainer, welcomeContainer,
+            emailPasswordContainer, submit, backButton);
+            welcomeText.innerHTML = "Enter your desired email and password";
+    }
+
  
  
