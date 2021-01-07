@@ -110,5 +110,12 @@ let signup = (() => {
             signInContainer.removeChild(signInContainer.firstElementChild);
         }
     }
+
+    function emailSent () {
+        clearContainer();
+        signInContainer.append(companyNameContainer, welcomeContainer);
+            welcomeText.innerHTML = "Email sent, please check your inbox";
+    }
+
  
  
