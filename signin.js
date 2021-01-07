@@ -117,5 +117,13 @@ let signup = (() => {
             welcomeText.innerHTML = "Email sent, please check your inbox";
     }
 
+    function reconfirmEmail () {
+        promptEmailPass();
+        emailPasswordContainer.removeChild(passwordContainer)
+        signInContainer.removeChild(submit)
+        emailPasswordContainer.appendChild(submit)
+        welcomeText.innerHTML = "Please re-confirm your email";
+    }
+
  
  
