@@ -486,3 +486,29 @@ body li {
     cursor: pointer;
     transition-duration: .3s;
 }
+
+#mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* width: 100%;
+    height: 100%; */
+    background-color: white;
+    opacity: .7;
+    z-index: 9;
+}
+
+#centerer {
+    position: fixed;
+    top: 30%;
+    right: 0;
+    /* bottom: 0; */
+    height: auto;
+    z-index: 10;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    /* background-color: black; */
+}
