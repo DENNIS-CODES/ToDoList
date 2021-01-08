@@ -224,3 +224,38 @@ body{
     transition-duration: .1s;
    
 }
+
+textarea, input {
+    border: none;
+    outline: none;
+    resize: none;
+    width: 80%;
+    margin: auto;
+    margin-left: 6px;
+    text-align: left;
+    background: transparent;
+}
+
+.button {
+    margin: auto;
+    width: 80%;
+    height: 35px;
+    border-radius: 20px;
+    border: black 1px solid;
+    display: flex;
+    flex-direction: column;
+}
+.button div {
+    line-height: 100%;
+    margin: auto;
+}
+
+#backButton {
+    grid-row: 6/7;
+    width: 15%;
+    grid-column: 1/5;
+    background-color: #7e7e7ea8;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
