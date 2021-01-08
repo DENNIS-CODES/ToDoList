@@ -42,3 +42,31 @@ body{
     0px 5px 8px 0px rgba(0, 0, 0, 0.14),
     0px 1px 14px 0px rgba(0, 0, 0, 0.12); 
 }
+
+#companyNameContainer {
+    grid-row: company-name;
+    grid-column: 1/5;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#companyName {
+    width: 200px;
+    margin: -48px;
+}
+
+#welcomeContainer {
+    grid-row: welcome;
+    grid-column: 1/5;
+}
+#welcomeText {
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 24px;
+}
+.icon {
+    width: 18px;
+    margin: auto;
+    margin-left: 10px;
+}
