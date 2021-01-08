@@ -70,3 +70,39 @@ body{
     margin: auto;
     margin-left: 10px;
 }
+
+#emailPasswordContainer {
+    grid-row: email-password;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-column: 1/5;
+}
+#emailContainer, #passwordContainer {
+    border: none;
+    outline: none;
+    resize: none;
+    width: 80%;
+    height: 75%;
+    margin: auto;
+    grid-column: 1/5;
+    margin-left: 60px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.685);
+    display: grid;
+    grid-template-columns: 30px auto;
+    border-radius: 20px;
+}
+#emailInputArea {
+    height: 26px;
+    overflow: hidden;
+}
+#signInButton {
+    grid-row: sign-in-button;
+    grid-column: 3/5;
+    margin-right: 60px;
+    width: 75%;
+    color: white;
+    font-weight: bold;
+    background-color: var(--primary-accent);
+    border: none;
+}
