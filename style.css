@@ -466,3 +466,23 @@ body li {
     cursor: pointer;
 }
 
+#project-container #diplay-section #task-container 
+#user-task-container #addTaskBottomRow {
+    height: 40px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container #addTaskBottomRow img {
+    width: 30px;
+    margin-right: 10px;
+    transition-duration: .3s;
+}
+
+#project-container #diplay-section #task-container 
+#user-task-container #addTaskBottomRow img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    transition-duration: .3s;
+}
