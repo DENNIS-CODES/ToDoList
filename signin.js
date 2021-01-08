@@ -158,7 +158,7 @@ let signup = (() => {
         welcomeText.innerHTML = "Welcome Back!"
         emailInputArea.setAttribute('placeholder', 'Email Address')
     }
-    return {
+     return {
         createSignInContainer,
         emailSent,
         reconfirmEmail,
