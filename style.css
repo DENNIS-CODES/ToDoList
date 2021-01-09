@@ -536,3 +536,20 @@ body li {
     display: flex;
     font-weight: bold;
 }
+.taskPopUpTitle {
+    margin: 5px 0;
+}
+
+.taskPopUpDueDate{
+    grid-row: 2/3;
+    grid-column: 1/3;
+}
+.taskPopUpProject {
+    grid-row: 3/4;
+    grid-column: 1/3;
+}
+
+.taskPopUpDetails {
+    grid-row: 4/5;
+    grid-column: 1/3;
+}
