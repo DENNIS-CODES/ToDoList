@@ -580,3 +580,21 @@ body li {
         margin-left: 20px;
         cursor: pointer;
     }
+     .taskPopUpTitle {
+        font-size: 20px;
+    }
+    
+    #projectContainer #topbar #projTitle {
+        margin-left: 25px;
+    }
+    #projectContainer #sidebar {
+        position: relative;
+        grid-row: 2/3;
+        grid-column: 1/2;
+        left: -300px;
+        background-color: var(--primary-lightest-shade);
+        z-index: 3;
+        transition-duration: .3s;
+        opacity: .95;
+    }
+
