@@ -561,3 +561,22 @@ body li {
     transform: rotate(45deg);
     cursor: pointer;
 }
+
+@media (max-width: 1100px) {
+    #projectContainer #diplaySection #taskDisplayContainer {
+        width: 500px;
+    }
+    #projectContainer #diplaySection #taskDisplayContainer #userTaskContainer .userTask .editIcon {
+        left: 445px;
+    }
+    #projectContainer #diplaySection #taskDisplayContainer #userTaskContainer .userTask .deleteIcon{
+        left: 465px;
+    }
+}
+@media (max-width: 750px) {
+    #sidebarToggleMenu {
+        display: visible;
+        left: 0;
+        margin-left: 20px;
+        cursor: pointer;
+    }
